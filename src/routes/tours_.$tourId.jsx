@@ -380,18 +380,29 @@ function TourDetail() {
 
         <aside className="h-fit lg:sticky lg:top-24">
           <div className="booking-card">
-            <p className="text-sm text-muted-foreground">From</p>
-            <div className="mt-1 flex items-baseline gap-2">
-              <strong className="font-serif text-3xl">{formatKes(tour.price_per_adult)}</strong>
-              <span className="text-sm text-muted-foreground">
-                {isPerDay ? "/ day (vehicle + driver)" : "/ adult"}
-              </span>
-            </div>
-            {hasHighSeasonRate && (
-              <p className="mt-1 text-xs text-muted-foreground">
-                {formatKes(tour.high_season_price_per_adult)}
-                {isPerDay ? " / day" : " / adult"} in high season (Jan, Jul–Aug, Dec)
-              </p>
+            {!created && (
+              <>
+                <p className="text-sm text-muted-foreground">From</p>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <strong className="font-serif text-3xl">{formatKes(tour.price_per_adult)}</strong>
+                  <span className="text-sm text-muted-foreground">
+                    {isPerDay ? "/ day (vehicle + driver)" : "/ adult"}
+                  </span>
+                </div>
+                {hasHighSeasonRate && (
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <strong className="font-serif text-3xl text-muted-foreground">
+                      {formatKes(tour.high_season_price_per_adult)}
+                    </strong>
+                    <span className="text-sm text-muted-foreground">
+                      {isPerDay ? "/ day" : "/ adult"} in high season
+                    </span>
+                  </div>
+                )}
+                {hasHighSeasonRate && (
+                  <p className="mt-1 text-xs text-muted-foreground">Jan, Jul–Aug, Dec</p>
+                )}
+              </>
             )}
 
             {created ? (

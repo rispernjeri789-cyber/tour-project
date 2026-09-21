@@ -63,7 +63,9 @@ function ToursList() {
               </p>
               <p className="mt-3 font-serif text-lg text-primary">
                 {formatKes(tour.price_per_adult)}{" "}
-                <span className="font-sans text-sm text-muted-foreground">/ adult</span>
+                <span className="font-sans text-sm text-muted-foreground">
+                  {tour.pricing_unit === "per_day" ? "/ day" : "/ adult"}
+                </span>
               </p>
             </div>
           </Link>
