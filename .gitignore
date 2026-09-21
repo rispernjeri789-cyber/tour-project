@@ -1,0 +1,15 @@
+# Environment variables
+.env
+.env*.local
+
+# Common ignores
+node_modules
+.DS_Store
+dist/
+.tanstack/
+backend/venv/
+__pycache__/
+*.pyc
+backend/.pgdata/
+*.log
+.claude/settings.local.json
